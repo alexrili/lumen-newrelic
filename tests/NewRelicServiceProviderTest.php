@@ -4,7 +4,8 @@ namespace Nord\Lumen\NewRelic\Tests;
 
 use Illuminate\Http\Request;
 use Laravel\Lumen\Application;
-use Nord\Lumen\ChainedExceptionHandler\ChainedExceptionHandler;
+
+use Nord\Lumen\NewRelic\ChainedExceptionHandler;
 use Nord\Lumen\NewRelic\NewRelicExceptionHandler;
 use Nord\Lumen\NewRelic\NewRelicServiceProvider;
 use PHPUnit\Framework\TestCase;
@@ -49,7 +50,7 @@ class NewRelicServiceProviderTest extends TestCase
             throw new \Exception();
         });
 
-        // Verify that the error handling doesn't silenty fail (which would happen if the exception handler isn't 
+        // Verify that the error handling doesn't silenty fail (which would happen if the exception handler isn't
         // registered correctly)
         $response = $app->handle(Request::create('/', 'GET'));
         $this->assertEquals(500, $response->getStatusCode());
