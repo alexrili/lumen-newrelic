@@ -1,5 +1,5 @@
 {
-    "name": "nordsoftware/lumen-newrelic",
+    "name": "alexrili/lumen-newrelic",
     "description": "New Relic instrumentation for the Lumen framework",
     "type": "library",
     "license": "MIT",
